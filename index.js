@@ -4,9 +4,6 @@ const route = require("./routes/Route")
 const cors = require('cors');
 const bodyParser = require('body-parser')
 require('dotenv').config();
-const path = require('path');
-
-
 
 const app = express();
 
@@ -16,7 +13,7 @@ const PORT =  process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
 
 const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
@@ -28,7 +25,9 @@ mongoose.connect(mongoURL)
     .catch((e) => {
         console.log(e);
     });
-
+app.get("/",(req,res)=>{
+    res.json("Hello there");
+})
 app.use("/",route);
 
 app.listen(PORT,()=>{
