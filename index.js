@@ -37,5 +37,5 @@ app.get("/",(req,res) =>{
 app.use(BASE_URL,route);
 
 app.listen(PORT,()=>{
-    console.log(`listening onf port ${PORT} ...`);
+    console.log(`listening onf port ${PORT} ...${MONGO_USER}`);
 })
