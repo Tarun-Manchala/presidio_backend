@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 require('dotenv').config();
 const path = require('path');
 
-const BASE_URL = process.env.BASE_URL;
 
 
 const app = express();
@@ -30,11 +29,7 @@ mongoose.connect(mongoURL)
         console.log(e);
     });
 
-app.get("/",(req,res) =>{
-    res.send("hello");
-})
-
-app.use(BASE_URL,route);
+app.use("/",route);
 
 app.listen(PORT,()=>{
     console.log(`listening onf port ${PORT} ...`);
