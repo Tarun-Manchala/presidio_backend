@@ -13,7 +13,6 @@ const PORT =  process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'build')));
 
 const MONGO_USER = process.env.MONGO_USER;
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
