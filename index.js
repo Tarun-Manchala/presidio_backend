@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 require('dotenv').config();
 const path = require('path');
 
-const base_url = "https://movie-list-one-omega.vercel.app/";
+const BASE_URL = process.env.BASE_URL;
 
 
 const app = express();
@@ -34,7 +34,7 @@ app.get("/",(req,res) =>{
     res.send("hello");
 })
 
-app.use(base_url,route);
+app.use(BASE_URL,route);
 
 app.listen(PORT,()=>{
     console.log(`listening onf port ${PORT} ...`);
